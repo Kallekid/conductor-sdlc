@@ -15,7 +15,7 @@ CRITICAL: You must validate the success of every tool call. If any tool call fai
     -   **Tech Stack**
     -   **Workflow**
 
-2.  **Handle Failure:** If ANY of these are missing (or their resolved paths do not exist), Announce: "Conductor is not set up. Please run `/conductor:setup`." and HALT.
+2.  **Handle Failure:** If ANY of these are missing (or their resolved paths do not exist), Announce: "**Conductor SDLC** is not set up. Please run `/conductor:setup` for a quick setup or `/conductor:newProject` for the full SDLC Master." and HALT.
 
 
 ---

@@ -46,8 +46,8 @@ These are the external tools and interfaces available.
 
 | Command | Description |
 | :--- | :--- |
-| `/conductor:setup` | *Deprecated*. Use `newProject`. |
-| `/conductor:newProject` | Interactive project setup & SDLC interviewer. |
+| `/conductor:setup` | Scaffolds the basic Conductor environment (quick setup). |
+| `/conductor:newProject` | The SDLC Master: Interactive project setup & SDLC orchestration. |
 | `/conductor:newTrack` | Create a new work track (feature/bug). |
 | `/conductor:implement` | Implement a task from the plan. |
 | `/conductor:review` | Review code against strict guidelines. |
