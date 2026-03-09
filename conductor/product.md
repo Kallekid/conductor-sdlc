@@ -15,6 +15,7 @@ Conductor SDLC aims to transform Gemini CLI usage from ad-hoc task execution int
 5.  **Granular Task Management**: "One Agent, One Task, One Prompt" philosophy to minimize AI hallucinations and errors.
 6.  **Project Memory & Knowledge Base**: A dynamic "Brain" (`conductor/memory.md`) that stores project-specific insights, patterns, and technical fixes for continuous improvement.
 7.  **Self-Aware Meta-Development**: Automatic detection of the Conductor extension repository with specialized context and skills readiness checks.
+8.  **Knowledge-to-Skill Pipeline**: Active context injection from memory and proactive suggestions to codify frequent patterns into permanent AI Skills.
 
 ## Architectural Map
 Conductor SDLC operates through a clear separation of concerns between logic, templates, and state:
