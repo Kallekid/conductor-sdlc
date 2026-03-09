@@ -10,6 +10,7 @@
 6. **Task Execution Philosophy:** 
    - **One Agent, One Task, One Prompt**: Each task is a self-contained operation.
    - **No Ambiguity**: Specifications must include line numbers, code snippets, and explicit instructions.
+   - **Knowledge-Aware**: AI agents must consult the project's **Memory** (`conductor/memory.md`) before implementation and contribute to it after completion.
 7. **Non-Interactive & CI-Aware:** Prefer non-interactive commands. Use `CI=true` for watch-mode tools.
 8. **Commit Frequency:** Changes are committed once per phase to maintain a clean, high-level history.
 
@@ -60,9 +61,13 @@ All tasks follow a strict lifecycle:
    - Changes are staged but NOT committed until the entire phase is complete.
    - Detailed task summaries are recorded for inclusion in the final phase commit message (Business Standard).
 
-9. **Get and Record Task Status:**
-    - **Step 9.1: Update Plan:** Read `plan.md`, find the line for the completed task, and update its status from `[~]` to `[x]`.
-    - **Step 9.2: Write Plan:** Write the updated content back to `plan.md`.
+9. **Knowledge Capture (Update Memory Log):**
+   - **Action:** If the task resulted in a new reusable pattern, a significant lesson learned, or a unique technical fix, record it in `conductor/memory.md`.
+   - **Format:** Use the "Knowledge Snippet Format" defined in the memory file.
+
+10. **Get and Record Task Status:**
+    - **Step 10.1: Update Plan:** Read `plan.md`, find the line for the completed task, and update its status from `[~]` to `[x]`.
+    - **Step 10.2: Write Plan:** Write the updated content back to `plan.md`.
 
 ### Phase Completion Verification and Checkpointing Protocol
 
@@ -70,31 +75,35 @@ All tasks follow a strict lifecycle:
 
 1.  **Announce Protocol Start:** Inform the user that the phase is complete and the verification and checkpointing protocol has begun.
 
-2.  **Ensure Test Coverage for Phase Changes:**
-    -   **Step 2.1: Determine Phase Scope:** Identify all changes since the last phase checkpoint or the start of the track.
-    -   **Step 2.2: List Changed Files:** Use `git diff --name-only` to list modified files.
-    -   **Step 2.3: Verify and Create Tests:** Ensure every modified code file has 100% test coverage.
+2.  **Knowledge Synthesis (Update Brain):**
+    -   **Action:** Review all task-level entries in the memory log for this phase.
+    -   **Consolidate:** Promote the most significant insights to the **Pattern Library** or **Lessons Learned** sections of `conductor/memory.md`.
 
-3.  **Execute Automated Tests with Proactive Debugging:**
+3.  **Ensure Test Coverage for Phase Changes:**
+    -   **Step 3.1: Determine Phase Scope:** Identify all changes since the last phase checkpoint or the start of the track.
+    -   **Step 3.2: List Changed Files:** Use `git diff --name-only` to list modified files.
+    -   **Step 3.3: Verify and Create Tests:** Ensure every modified code file has 100% test coverage.
+
+4.  **Execute Automated Tests with Proactive Debugging:**
     -   Run the full test suite and announce the command.
     -   If tests fail, debug and fix (max 2 attempts) before asking for guidance.
 
-4.  **Propose a Detailed, Actionable Manual Verification Plan:**
+5.  **Propose a Detailed, Actionable Manual Verification Plan:**
     -   Analyze requirements and present a step-by-step plan for the user to verify the phase goals.
 
-5.  **Await Explicit User Feedback:**
+6.  **Await Explicit User Feedback:**
     -   Wait for the user to confirm "yes" after manual verification.
 
-6.  **Create Phase Checkpoint Commit:**
+7.  **Create Phase Checkpoint Commit:**
     -   Stage all changes (code and `plan.md`).
     -   Perform the commit with a detailed summary of all tasks completed in the phase (Business Standard summary format).
     -   Message format: `feat/fix(<scope>): Phase completion - <Phase Name>\n\n<Consolidated Task Summaries>`
 
-7.  **Get and Record Phase Checkpoint SHA:**
-    -   **Step 7.1: Get Commit Hash:** Obtain the hash of the phase checkpoint commit.
-    -   **Step 7.2: Update Plan:** Record the SHA in `plan.md` next to the phase header: `[checkpoint: <sha>]`.
+8.  **Get and Record Phase Checkpoint SHA:**
+    -   **Step 8.1: Get Commit Hash:** Obtain the hash of the phase checkpoint commit.
+    -   **Step 8.2: Update Plan:** Record the SHA in `plan.md` next to the phase header: `[checkpoint: <sha>]`.
 
-8.  **Announce Completion:** Inform the user that the phase is complete and the checkpoint has been created.
+9.  **Announce Completion:** Inform the user that the phase is complete and the checkpoint has been created.
 
 ### Quality Gates
 

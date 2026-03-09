@@ -80,19 +80,23 @@ CRITICAL: You must validate the success of every tool call. If any tool call fai
     b. **Read Files:**
         -   **Track Context:** Using the **Universal File Resolution Protocol**, resolve and read the **Specification** and **Implementation Plan** for the selected track.
         -   **Workflow:** Resolve **Workflow** (via the **Universal File Resolution Protocol** using the project's index file).
-    c. **Error Handling:** If you fail to read any of these files, you MUST stop and inform the user of the error.
+        -   **Memory:** Resolve **Memory** (via the **Universal File Resolution Protocol** using the project's index file). Read `conductor/memory.md` to gain project-specific context before starting work.
+    c. **Error Handling:** If you fail to read any of these files (except Memory, which may not exist yet), you MUST stop and inform the user of the error.
 
 4.  **Execute Tasks and Update Track Plan:**
-    a. **Announce:** State that you will now execute the tasks from the track's **Implementation Plan** by following the procedures in the **Workflow**.
+    a. **Announce:** State that you will now execute the tasks from the track's **Implementation Plan** by following the procedures in the **Workflow**, while utilizing the project's **Memory** for context.
     b. **Iterate Through Tasks:** You MUST now loop through each task in the track's **Implementation Plan** one by one.
     c. **For Each Task, You MUST:**
-        i. **Defer to Workflow:** The **Workflow** file is the **single source of truth** for the entire task lifecycle. You MUST now read and execute the procedures defined in the "Task Workflow" section of the **Workflow** file you have in your context. Follow its steps for implementation, testing, and committing precisely.
+        i. **Knowledge Retrieval:** Scan `conductor/memory.md` for any patterns or lessons related to the current task.
+        ii. **Defer to Workflow:** The **Workflow** file is the **single source of truth** for the entire task lifecycle. You MUST now read and execute the procedures defined in the "Task Workflow" section of the **Workflow** file you have in your context. Follow its steps for implementation, testing, and committing precisely.
            - **CRITICAL:** Every human-in-the-loop interaction, confirmation, or request for feedback mentioned in the **Workflow** (e.g., manual verification plans or guidance on persistent failures) MUST be conducted using the `ask_user` tool.
+        iii. **Knowledge Capture:** At the end of the task, if any significant patterns or lessons were discovered, record them in the **Memory** log as defined in the **Workflow**.
 
 5.  **Finalize Track:**
-    -   After all tasks in the track's local **Implementation Plan** are completed, you MUST update the track's status in the **Tracks Registry**.
+    -   After all tasks in the track's local **Implementation Plan** are completed, perform a final "Knowledge Synthesis" to update the **Pattern Library** or **Lessons Learned** sections in `conductor/memory.md`.
+    -   Update the track's status in the **Tracks Registry**.
     -   This requires finding the specific heading for the track (e.g., `## [~] Track: <Description>`) and replacing it with the completed status (e.g., `## [x] Track: <Description>`).
-    -   **Commit Changes:** Stage the **Tracks Registry** file and commit with the message `chore(conductor): Mark track '<track_description>' as complete`.
+    -   **Commit Changes:** Stage the **Tracks Registry** file and any memory updates, then commit with the message `chore(conductor): Mark track '<track_description>' as complete`.
     -   Announce that the track is fully complete and the tracks file has been updated.
 
 ---

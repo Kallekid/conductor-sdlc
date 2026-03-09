@@ -369,7 +369,45 @@ CRITICAL: You must validate the success of every tool call. If any tool call fai
 
 
 ### 2.6 Finalization
-1.  **Generate Index File:**
+1.  **Initialize Project Memory:**
+    -   Create `conductor/memory.md` with the following content:
+        ```markdown
+        # Memory & Knowledge Base
+
+        This file stores project-specific insights, reusable patterns, and technical decisions. It serves as the project's "Brain," allowing AI agents to learn from every task and phase.
+
+        ---
+
+        ## Pattern Library
+        *Reusable code snippets, architectural patterns, and structural insights.*
+
+        - **None yet.**
+
+        ## Lessons Learned
+        *Debugging insights, technical fixes, and "gotchas."*
+
+        - **None yet.**
+
+        ## Log
+        *Date-stamped entries from individual tasks and phases.*
+
+        - **None yet.**
+
+        ---
+
+        ### Knowledge Snippet Format
+        To record a new entry, use the following format:
+
+        **[Type: <Pattern|Lesson|Fix>] <Short Description>**
+        - **Date:** YYYY-MM-DD
+        - **Track:** <track_id>
+        - **Task/Phase:** <task/phase_name>
+        - **Content:** <detailed_description>
+        - **Impact:** <how_this_helps_future_tasks>
+        ```
+    -   **Announce:** "Initialized `conductor/memory.md` as the project's knowledge base."
+
+2.  **Generate Index File:**
     -   Create `conductor/index.md` with the following content:
         ```markdown
         # Project Context
@@ -378,6 +416,7 @@ CRITICAL: You must validate the success of every tool call. If any tool call fai
         - [Product Definition](./product.md)
         - [Product Guidelines](./product-guidelines.md)
         - [Tech Stack](./tech-stack.md)
+        - [Memory](./memory.md)
 
         ## Workflow
         - [Workflow](./workflow.md)
@@ -389,10 +428,11 @@ CRITICAL: You must validate the success of every tool call. If any tool call fai
         ```
     -   **Announce:** "Created `conductor/index.md` to serve as the project context index."
 
-2.  **Summarize Actions:** Present a summary of all actions taken during the initial setup, including:
+3.  **Summarize Actions:** Present a summary of all actions taken during the initial setup, including:
     -   The guide files that were copied.
     -   The workflow file that was copied.
-3.  **Transition to initial plan and track generation:** Announce that the initial setup is complete and you will now proceed to define the first track for the project.
+    -   The memory file that was initialized.
+4.  **Transition to initial plan and track generation:** Announce that the initial setup is complete and you will now proceed to define the first track for the project.
 
 ---
 
