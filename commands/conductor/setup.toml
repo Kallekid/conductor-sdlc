@@ -290,7 +290,7 @@ CRITICAL: You must validate the success of every tool call. If any tool call fai
 ### 2.4 Select Guides (Interactive)
 1.  **Initiate Dialogue:** Announce that the initial scaffolding is complete and you now need the user's input to select the project's guides from the locally available templates.
 2.  **Select Code Style Guides:**
-    -   List the available style guides by running `ls ~/.gemini/extensions/conductor/templates/code_styleguides/`.
+    -   **Identify Template Path:** List the available style guides by searching for the `conductor-sdlc/templates/code_styleguides/` directory in the Gemini extensions folder (usually `~/.gemini/extensions/conductor-sdlc/templates/code_styleguides/`).
     -   **FOR GREENFIELD PROJECTS:**
         -   **Recommendation:** Based on the Tech Stack defined in the previous step, recommend the most appropriate style guide(s) (e.g., "python.md" for a Python project) and explain why.
         -   **Determine Mode:** Use the `ask_user` tool:
@@ -336,7 +336,7 @@ CRITICAL: You must validate the success of every tool call. If any tool call fai
 2.  **Determine Mode:** Use the `ask_user` tool to let the user choose their preferred workflow.
     - **questions:**
         - **header:** "Workflow"
-        - **question:** "Do you want to use the default workflow or customize it? The default includes >80% test coverage and per-task commits."
+        - **question:** "Do you want to use the default workflow or customize it? The default includes >100% test coverage and per-task commits."
         - **type:** "choice"
         - **options:**
             - Label: "Default", Description: "Use the standard Conductor workflow."
@@ -348,7 +348,7 @@ CRITICAL: You must validate the success of every tool call. If any tool call fai
         a. **Initial Batch:** Use a single `ask_user` tool call to gather primary customizations:
             - **questions:**
                 - **header:** "Coverage"
-                - **question:** "The default required test code coverage is >80%. What is your preferred percentage?" (type: "text", placeholder: "e.g., 90")
+                - **question:** "The default required test code coverage is >100%. What is your preferred percentage?" (type: "text", placeholder: "e.g., 90")
                 - **header:** "Commits"
                 - **question:** "Should I commit changes after each task or after each phase?"
                 - **type:** "choice"

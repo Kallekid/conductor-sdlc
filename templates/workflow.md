@@ -6,7 +6,7 @@
 2. **The Tech Stack is Deliberate:** Changes to the tech stack must be documented in `tech-stack.md` *before* implementation
 3. **Test-Driven Development (TDD):** Write unit and integration tests *before* implementing functionality.
 4. **Anti-Mocking Philosophy:** Prefer real data and real environments (e.g., Testcontainers, local DBs) over heavy mocking. Mocks are for external APIs only.
-5. **High Code Coverage & Strictness:** Aim for >80% coverage and zero linting/typing errors.
+5. **High Code Coverage & Strictness:** Aim for 100% coverage and zero linting/typing errors.
 6. **Task Execution Philosophy:** 
    - **One Agent, One Task, One Prompt**: Each task is a self-contained operation.
    - **No Ambiguity**: Specifications must include line numbers, code snippets, and explicit instructions.
@@ -54,7 +54,7 @@ All tasks follow a strict lifecycle:
    ```bash
    pytest --cov=app --cov-report=html
    ```
-   Target: >80% coverage for new code. The specific tools and commands will vary by language and framework.
+   Target: 100% coverage for new code. The specific tools and commands will vary by language and framework.
 
 7. **Document Deviations:** If implementation differs from tech stack:
    - **STOP** implementation
@@ -167,7 +167,7 @@ All tasks follow a strict lifecycle:
 Before marking any task complete, verify:
 
 - [ ] All tests pass
-- [ ] Code coverage meets requirements (>80%)
+- [ ] Code coverage meets requirements (100%)
 - [ ] Code follows project's code style guidelines (as defined in `code_styleguides/`)
 - [ ] All public functions/methods are documented (e.g., docstrings, JSDoc, GoDoc)
 - [ ] Type safety is enforced (e.g., type hints, TypeScript types, Go types)
@@ -241,7 +241,7 @@ Before requesting review:
 3. **Testing**
    - Unit tests comprehensive
    - Integration tests pass
-   - Coverage adequate (>80%)
+   - Coverage adequate (100%)
 
 4. **Security**
    - No hardcoded secrets
@@ -330,7 +330,7 @@ A task is complete when:
 
 ### Pre-Deployment Checklist
 - [ ] All tests passing
-- [ ] Coverage >80%
+- [ ] Coverage 100%
 - [ ] No linting errors
 - [ ] Mobile testing complete
 - [ ] Environment variables configured
