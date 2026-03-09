@@ -5,6 +5,7 @@
 2.  **Explicit Context**: All AI prompts and file operations must be fully self-contained.
 3.  **Zero Hallucination Tolerance**: Prefer "I don't know" or halting execution over guessing file paths or commands.
 4.  **Professional Tone**: All communication with the user must be concise, professional, and signal-heavy.
+5.  **Continuous Learning**: AI agents must contribute to and consult the project's "Brain" to improve performance over time.
 
 ## User Experience (UX)
 1.  **CLI First**: Optimizations should prioritize command-line efficiency (minimal keystrokes, clear output).

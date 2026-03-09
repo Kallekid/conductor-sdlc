@@ -13,6 +13,7 @@ Conductor SDLC aims to transform Gemini CLI usage from ad-hoc task execution int
 3.  **Scouting-First Workflow**: Mandates a "scout" phase to analyze existing code before implementation to prevent redundancy.
 4.  **Automated Quality Gates**: Integrated `pnpm audit`, strict TypeScript/ESLint rules, and performance benchmarking for every track.
 5.  **Granular Task Management**: "One Agent, One Task, One Prompt" philosophy to minimize AI hallucinations and errors.
+6.  **Project Memory & Knowledge Base**: A dynamic "Brain" (`conductor/memory.md`) that stores project-specific insights, patterns, and technical fixes for continuous improvement.
 
 ## Target Audience
 -   **Senior Engineers**: Who value rigorous standards and want to automate the enforcement of best practices.
