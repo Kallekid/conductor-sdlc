@@ -15,6 +15,20 @@ Conductor SDLC aims to transform Gemini CLI usage from ad-hoc task execution int
 5.  **Granular Task Management**: "One Agent, One Task, One Prompt" philosophy to minimize AI hallucinations and errors.
 6.  **Project Memory & Knowledge Base**: A dynamic "Brain" (`conductor/memory.md`) that stores project-specific insights, patterns, and technical fixes for continuous improvement.
 
+## Architectural Map
+Conductor SDLC operates through a clear separation of concerns between logic, templates, and state:
+
+1.  **Logic Layer (`commands/conductor/`)**:
+    -   Contains the "Source Code" of the extension in the form of `.toml` command definitions.
+    -   Each TOML file defines a high-level protocol (e.g., `setup`, `implement`, `newTrack`) that directs the AI agent's behavior.
+2.  **Template Layer (`templates/`)**:
+    -   Provides the foundational documents (e.g., `workflow.md`, `code_styleguides/`) that are copied into new projects.
+    -   These files define the *standards* that the extension enforces.
+3.  **Management Layer (`conductor/`)**:
+    -   This is the project's "State" and "Brain."
+    -   It contains the track registry, active plans, and the **Memory** (`memory.md`).
+    -   **Meta-Note:** When working on Conductor itself, this folder tracks the development of the logic and template layers.
+
 ## Target Audience
 -   **Senior Engineers**: Who value rigorous standards and want to automate the enforcement of best practices.
 -   **Teams**: Who need consistent architectural patterns across multiple developers using AI assistance.

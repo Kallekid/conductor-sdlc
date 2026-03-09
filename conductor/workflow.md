@@ -63,7 +63,8 @@ All tasks follow a strict lifecycle:
 
 9. **Knowledge Capture (Update Memory Log):**
    - **Action:** If the task resulted in a new reusable pattern, a significant lesson learned, or a unique technical fix, record it in `conductor/memory.md`.
-   - **Format:** Use the "Knowledge Snippet Format" defined in the memory file.
+   - **Meta-Awareness:** Pay special attention to documenting **Project Type** specific insights (e.g., "In extension development, always check for available skills before proceeding").
+   - **Format:** Use the "Knowledge Snippet Format" defined in the memory file. Ensure the "Impact" section explains how this insight prevents future errors or redundancy.
 
 10. **Get and Record Task Status:**
     - **Step 10.1: Update Plan:** Read `plan.md`, find the line for the completed task, and update its status from `[~]` to `[x]`.
@@ -77,7 +78,9 @@ All tasks follow a strict lifecycle:
 
 2.  **Knowledge Synthesis (Update Brain):**
     -   **Action:** Review all task-level entries in the memory log for this phase.
+    -   **Strategic Synthesis:** Identify insights that represent fundamental shifts in project understanding (e.g., "The repository is actually the tool source, not a target app").
     -   **Consolidate:** Promote the most significant insights to the **Pattern Library** or **Lessons Learned** sections of `conductor/memory.md`.
+    -   **Documentation Update:** If the synthesis reveals a gap in the `Product Definition` or `Guidelines`, propose an update immediately.
 
 3.  **Ensure Test Coverage for Phase Changes:**
     -   **Step 3.1: Determine Phase Scope:** Identify all changes since the last phase checkpoint or the start of the track.

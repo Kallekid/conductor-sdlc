@@ -1,28 +1,20 @@
-# Specification: Implement Core Infrastructure Scaffolding and Repository Pattern
+# Specification: Enhance Extension Self-Awareness and Skills Discovery
 
-## MVP Track Description
-Establish the foundational engineering infrastructure for the Conductor SDLC extension. This includes strict TypeScript configuration, linting, quality gates, and the initial Repository Pattern abstraction for data access.
-
-## Persona Requirements
-- **Product Owner**: Ensure the system is "SDLC-ready" and enforces best practices from day one.
-- **Dev Team**: Mandate the Repository Pattern for all data access (FileSystem, Shell, etc.) to ensure testability.
-- **QA/SM**: Establish 100% test coverage and strict linting as non-negotiable quality gates.
-
-## Resource Budgets
-- **CPU/RAM**: Minimal overhead during CLI execution.
-- **Latency**: Sub-100ms for command parsing and initial scaffolding.
+## Goal
+Improve the **Conductor SDLC** extension's internal logic to be self-aware of its own repository and robust against missing dependencies like "Skills." This ensures that when a user (or AI) initializes the project, the system immediately recognizes it is working on the Conductor source code and captures this in the Project Memory.
 
 ## Core Features
-1. **Strictest TS/Lint Scaffolding**:
-   - `package.json` with `typescript`, `vitest`, `eslint`, `prettier`.
-   - `tsconfig.json` with maximum strictness settings.
-2. **Repository Pattern Foundation**:
-   - Initial `src/repositories/` directory.
-   - `FileSystemRepository` to abstract all `conductor/` folder operations.
-3. **Quality Gates**:
-   - `husky` for pre-commit quality checks.
-   - `dependency-cruiser` to block `Domain -> Infrastructure` circular dependencies.
+1. **Meta-Project Detection**:
+   - Update `setup` and `newProject` prompts to check for the presence of `gemini-extension.json` and the `commands/conductor` directory.
+   - If detected, immediately record "Project Type: Conductor Extension Development" in `conductor/memory.md`.
+2. **Skills Readiness Check**:
+   - Implement a protocol to list available skills during project initialization.
+   - If no skills are found, provide the user with a "Skill Scaffolding" track suggestion.
+3. **Architectural Memory**:
+   - Document the relationship between the **Source Code** (`commands/`, `templates/`) and the **Management Layer** (`conductor/`).
+   - Map how prompt logic in `.toml` files drives the SDLC phases.
 
-## No Ambiguity
-- All configuration files must follow the project's established standards.
-- File system operations must be routed through the `FileSystemRepository`.
+## Quality Gates
+- [ ] Memory file contains the correct "Meta-Project" context after setup.
+- [ ] Setup command correctly warns if skills are missing.
+- [ ] Documentation clearly explains the "Brain" vs. "Source" distinction.

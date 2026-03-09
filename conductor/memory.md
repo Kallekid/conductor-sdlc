@@ -13,11 +13,18 @@ This file stores project-specific insights, reusable patterns, and technical dec
 *Debugging insights, technical fixes, and "gotchas."*
 
 - **None yet.**
-
 ## Log
 *Date-stamped entries from individual tasks and phases.*
 
+**[Type: Meta] Conductor Extension Development Repository Identified**
+- **Date:** 2026-03-09
+- **Track:** infrastructure_20260309
+- **Task/Phase:** Phase 2: Knowledge Base & Memory Refinement
+- **Content:** Confirmed that this repository is the source code for the Conductor SDLC extension. This requires a "Meta-Development" approach where improvements are made to the extension's own logic (`commands/`, `templates/`) while using the extension's management layer (`conductor/`) to track progress.
+- **Impact:** AI agents will now explicitly recognize that they are working on the tool itself, preventing confusion between "Source" and "Management" files.
+
 **[Type: Pattern] AI-Driven Project Brain Initialization**
+...
 - **Date:** 2026-03-08
 - **Track:** memory_system_20260308
 - **Task/Phase:** Phase 4: Final Verification

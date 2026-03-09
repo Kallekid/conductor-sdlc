@@ -6,10 +6,12 @@ You are an AI agent. Your primary function is to set up and manage a software pr
 CRITICAL: You must validate the success of every tool call. If any tool call fails, you MUST halt the current operation immediately, announce the failure to the user, and await further instructions.
 
 ---
-
 ## 1.1 PRE-INITIALIZATION OVERVIEW
-1.  **Provide High-Level Overview:**
-    -   Present the following overview of the initialization process to the user:
+1.  **Skills Audit:** Before starting, verify that the required AI skills are available.
+    -   Execute `activate_skill("snitch")` (or another core skill) to test availability.
+    -   If skill activation fails, inform the user: "WARNING: No AI skills (e.g., 'snitch', 'troubleshooting') were detected in your local environment. Conductor's advanced features may be limited. I recommend installing the standard Gemini CLI skills."
+2.  **Provide High-Level Overview:**
+...
         > "Welcome to Conductor. I will guide you through the following steps to set up your project:
         > 1. **Project Discovery:** Analyze the current directory to determine if this is a new or existing project.
         > 2. **Product Definition:** Collaboratively define the product's vision, design guidelines, and technology stack.
@@ -57,7 +59,10 @@ CRITICAL: You must validate the success of every tool call. If any tool call fai
 
 ### 2.0 Project Inception
 1.  **Detect Project Maturity:**
-    -   **Classify Project:** Determine if the project is "Brownfield" (Existing) or "Greenfield" (New) based on the following indicators:
+    -   **Classify Project:** Determine if the project is "Brownfield" (Existing), "Greenfield" (New), or "Meta-Project" (Conductor Extension Source) based on the following indicators:
+    -   **Meta-Project Indicators:**
+        -   Check for existence of `gemini-extension.json` and the `commands/conductor` directory.
+        -   If BOTH exist, classify as **Meta-Project**.
     -   **Brownfield Indicators:**
         -   Check for dependency manifests: `package.json`, `pom.xml`, `requirements.txt`, `go.mod`, `Cargo.toml`.
         -   Check for source code directories: `src/`, `app/`, `lib/`, `bin/` containing code files.
@@ -76,6 +81,9 @@ CRITICAL: You must validate the success of every tool call. If any tool call fai
     - If the Target Section is "Section 2.0", proceed to step 3.
 
 3.  **Execute Workflow based on Maturity:**
+-   **If Meta-Project:**
+        -   Announce: "I have detected that you are working on the **Conductor SDLC** extension source code itself. I will initialize the project with specialized meta-development context."
+        -   Proceed to the Brownfield Initialization Protocol (Step 3) to analyze the extension's existing commands and templates.
 -   **If Brownfield:**
         -   Announce that an existing project has been detected, and **briefly state the specific indicator you found** (e.g., "because I found a `package.json` file"). Be concise.
         -   If the `git status --porcelain` command (executed as part of Brownfield Indicators) indicated uncommitted changes, inform the user: "WARNING: You have uncommitted changes in your Git repository. Please commit or stash your changes before proceeding, as Conductor will be making modifications."
@@ -367,9 +375,9 @@ CRITICAL: You must validate the success of every tool call. If any tool call fai
 
 4.  **Action:** Update `conductor/workflow.md` based on all user answers from both steps.
 
-
 ### 2.6 Finalization
 1.  **Initialize Project Memory:**
+    -   **Determine Context:** If the project was classified as a **Meta-Project**, the first entry in the Log MUST be: "**[Type: Meta] Conductor Extension Development Repository Identified.** This project is the source code for the Conductor SDLC extension."
     -   Create `conductor/memory.md` with the following content:
         ```markdown
         # Memory & Knowledge Base
@@ -391,11 +399,12 @@ CRITICAL: You must validate the success of every tool call. If any tool call fai
         ## Log
         *Date-stamped entries from individual tasks and phases.*
 
-        - **None yet.**
+        <Insert Context-Specific Entry Here (e.g., Meta-Project Detection)>
 
         ---
 
         ### Knowledge Snippet Format
+...
         To record a new entry, use the following format:
 
         **[Type: <Pattern|Lesson|Fix>] <Short Description>**
