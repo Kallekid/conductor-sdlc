@@ -10,7 +10,7 @@
     - [x] Revise Section 3.4.c.i (Knowledge Retrieval) to explicitly command a `grep_search` of the memory log for the task's keywords.
 - [x] Task: Conductor - User Manual Verification 'Active Memory' (Protocol in workflow.md)
 
-## Phase 2: Skill Evolution Pipeline
+## Phase 2: Skill Evolution Pipeline [checkpoint: b32c068]
 - [x] Task: [Scout] Analyze `createSkill.toml` for integration points and existing pattern extraction methods. [Skills: Repo-Pattern-Enforcer] [MCP: Search, FileSystem]
     - [x] Identify where to insert the "Pattern Audit" logic.
 - [x] Task: Implement Pattern Audit logic in `createSkill.toml`. [Skills: Strict-Type-Auditor] [MCP: FileSystem]
@@ -21,7 +21,7 @@
 - [x] Task: Conductor - User Manual Verification 'Skill Evolution' (Protocol in workflow.md)
 
 ## Phase 3: Final Meta-Verification
-- [ ] Task: End-to-End Simulation of Active Memory and Skill Audit. [Skills: Strict-Type-Auditor] [MCP: Shell]
-    - [ ] Verify that `newTrack` and `implement` correctly grep the memory file.
-    - [ ] Verify that `createSkill` correctly identifies "repeated" patterns.
-- [ ] Task: Conductor - User Manual Verification 'Final Verification' (Protocol in workflow.md)
+- [x] Task: End-to-End Simulation of Active Memory and Skill Audit. [Skills: Strict-Type-Auditor] [MCP: Shell]
+    - [x] Verify that `newTrack` and `implement` correctly grep the memory file.
+    - [x] Verify that `createSkill` correctly identifies "repeated" patterns.
+- [x] Task: Conductor - User Manual Verification 'Final Verification' (Protocol in workflow.md)
