@@ -1,14 +1,14 @@
 # Implementation Plan: Active Memory and Skill Evolution
 
 ## Phase 1: Active Memory Injection
-- [ ] Task: [Scout] Search for keyword extraction patterns and `grep_search` usage in existing `.toml` prompts. [Skills: Repo-Pattern-Enforcer] [MCP: Search, FileSystem]
-    - [ ] Analyze how `implement.toml` and `newTrack.toml` can be modified to include automated memory lookups.
-- [ ] Task: Update `newTrack.toml` with Active Memory logic. [Skills: Strict-Type-Auditor] [MCP: FileSystem]
-    - [ ] Inject the "Memory Scan" protocol into Section 2.2 (Interactive Specification Generation).
-    - [ ] Mandate the agent to `grep_search` `conductor/memory.md` for track description keywords.
-- [ ] Task: Update `implement.toml` with mandatory Knowledge Retrieval. [Skills: Strict-Type-Auditor] [MCP: FileSystem]
-    - [ ] Revise Section 3.4.c.i (Knowledge Retrieval) to explicitly command a `grep_search` of the memory log for the task's keywords.
-- [ ] Task: Conductor - User Manual Verification 'Active Memory' (Protocol in workflow.md)
+- [x] Task: [Scout] Search for keyword extraction patterns and `grep_search` usage in existing `.toml` prompts. [Skills: Repo-Pattern-Enforcer] [MCP: Search, FileSystem]
+    - [x] Analyze how `implement.toml` and `newTrack.toml` can be modified to include automated memory lookups.
+- [x] Task: Update `newTrack.toml` with Active Memory logic. [Skills: Strict-Type-Auditor] [MCP: FileSystem]
+    - [x] Inject the "Memory Scan" protocol into Section 2.1 and 2.2.
+    - [x] Mandate the agent to `grep_search` `conductor/memory.md` for track description keywords.
+- [x] Task: Update `implement.toml` with mandatory Knowledge Retrieval. [Skills: Strict-Type-Auditor] [MCP: FileSystem]
+    - [x] Revise Section 3.4.c.i (Knowledge Retrieval) to explicitly command a `grep_search` of the memory log for the task's keywords.
+- [x] Task: Conductor - User Manual Verification 'Active Memory' (Protocol in workflow.md)
 
 ## Phase 2: Skill Evolution Pipeline
 - [ ] Task: [Scout] Analyze `createSkill.toml` for integration points and existing pattern extraction methods. [Skills: Repo-Pattern-Enforcer] [MCP: Search, FileSystem]

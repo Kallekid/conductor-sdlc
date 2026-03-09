@@ -38,15 +38,21 @@ CRITICAL: You must validate the success of every tool call. If any tool call fai
             - **placeholder:** "e.g., Implement user authentication"
         Await the user's response and use it as the track description.
 3.  **Infer Track Type:** Analyze the description to determine if it is a "Feature" or "Something Else" (e.g., Bug, Chore, Refactor). Do NOT ask the user to classify it.
+4.  **Active Memory Scan (Knowledge Retrieval):**
+    -   **Extract Keywords:** Identify 2-3 core technical keywords from the track description (e.g., "Authentication", "Repository", "UI").
+    -   **Memory Search:** Use `grep_search` to find these keywords in `conductor/memory.md`.
+    -   **Context Injection:** Read the matching entries to identify relevant lessons learned or reusable patterns.
+    -   **Announce:** Inform the user if any relevant project memory was found and how it will influence the track's design.
 
 ### 2.2 Interactive Specification Generation (`spec.md`)
 
 1.  **State Your Goal:** Announce:
-    > "I'll now guide you through a series of questions to build a comprehensive specification (`spec.md`) for this track."
+    > "I'll now guide you through a series of questions to build a comprehensive specification (`spec.md`) for this track. I will incorporate relevant insights from the project's **Memory** into our design."
 
 2.  **Questioning Phase:** Ask a series of questions to gather details for the `spec.md` using the `ask_user` tool. You must batch up to 4 related questions in a single tool call to streamline the process. Tailor questions based on the track type (Feature or Other).
     *   **CRITICAL:** Wait for the user's response after each `ask_user` tool call.
     *   **General Guidelines:**
+        *   **Memory Integration:** You MUST explicitly use any "Lessons Learned" and "Patterns" retrieved during the Active Memory Scan to refine your questions and requirements.
         *   Refer to information in **Product Definition**, **Tech Stack**, etc., to ask context-aware questions.
         *   Provide a brief explanation and clear examples for each question.
         *   **Strongly Recommendation:** Whenever possible, present 2-3 plausible options for the user to choose from.
