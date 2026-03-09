@@ -4,3 +4,6 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 ---
 
+- [ ] **Track: Active Memory and Skill Evolution**
+  *Link: [./tracks/active_memory_20260309/](./tracks/active_memory_20260309/)*
+
