@@ -33,9 +33,14 @@ All tasks follow a strict lifecycle:
 
 ### Standard Task Workflow
 
-1. **Select Task:** Choose the next available task from `plan.md` in sequential order
+1. **Select Task:** Choose the next available task from `plan.md` in sequential order.
 
-2. **Mark In Progress:** Before beginning work, edit `plan.md` and change the task from `[ ]` to `[~]`
+2. **Scouting Phase (Mandatory for [Scout] tasks):**
+   - **Delegation**: If a task or sub-task is tagged with `[Scout]`, you MUST delegate this operation to the `codebase_investigator` sub-agent.
+   - **Objective**: Use the sub-agent to find existing patterns, infrastructure, or reusable logic. 
+   - **Outcome**: The sub-agent's summary must be used to refine the implementation strategy without bloating the main agent's context.
+
+3. **Mark In Progress:** Before beginning implementation work, edit `plan.md` and change the task from `[ ]` to `[~]`.
 
 3. **Write Failing Tests (Red Phase):**
    - Create a new test file for the feature or bug fix.

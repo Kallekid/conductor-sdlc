@@ -114,6 +114,7 @@ Tracks are developed in isolation to ensure stability.
 
 ## 8. Task Execution Philosophy
 - **Atomicity**: One agent, one task, one prompt. Do not combine unrelated tasks.
+- **Orchestration**: All `[Scout]` tasks MUST be delegated to the `codebase_investigator` sub-agent to maintain main-loop context efficiency.
 - **No Ambiguity**: Specifications must include line numbers, code snippets, and explicit instructions.
 - **Anti-Mocking**: Tests must use real database instances (or containers) and real network responses whenever possible to avoid "mocking bugs".
 
